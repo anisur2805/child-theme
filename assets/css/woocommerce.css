@@ -1,0 +1,61 @@
+
+.woocommerce .onsale {
+	font-size: 12px;
+	padding: 10px;
+	top: 10px;
+	right: 10px;
+	border-radius: 6px;
+}
+ 
+/* Optional styling */
+/* .woocommerce-page ul.products li.product span.onsale,  span.onsale {
+  right: 0!important;
+    top: 0!important; 
+    font-size: 15px;
+   background: #137118!important;
+} */
+
+.onsale::before {
+        content: "";
+        float: left;
+        padding-top: unset;
+}
+
+#product-thumbnail {
+	margin-top: 15px;
+}
+
+#product-thumbnail .custom-owl-nav {
+	position: absolute;
+	bottom: 0;
+}
+
+#product-thumbnail .owl-nav {
+        bottom: 77px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+		transition: opacity 0.3s ease-in-out;
+		opacity: 0;
+}
+
+#product-thumbnail .owl-nav button {
+        width: 35px;
+        display: inline-block;
+        border-radius: 4px;
+} 
+
+#product-thumbnail.swiper-wrapper:hover .owl-nav {
+	opacity: 1;
+}
+
+
+.woo-breadcrumb {
+	height: 250px;
+	background: #f8f8f8 no-repeat center center/ cover;
+	width: 100%;
+	display: grid;
+	place-items: center;
+}

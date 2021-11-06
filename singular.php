@@ -1,0 +1,1 @@
+<h1>Hello from Singular file</h1>

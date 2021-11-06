@@ -1,0 +1,102 @@
+/*
+ Theme Name:   Brand New Child Theme
+ Theme URI:    #
+ Description:  Twenty Twenty One Child Theme
+ Author:       Anisur Rahman
+ Author URI:   http://github.com/anisur2805
+ Template:     twentytwentyone
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twentytwentyone-child
+*/
+
+/* .container {
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	background-color: #f8f8f8;
+	padding: 10px;
+	border-radius: 10px;
+	box-sizing: border-box;
+} */
+
+.contact-form label {
+	display: inline-block;
+	width: 120px;
+}
+
+.d-none {
+	display: none;
+}
+.m-0 {
+	margin: 0;
+}
+
+.mr-10 {
+	margin-right: 40px;
+}
+.d-flex{
+	display: flex;
+} .align-items-center{
+	align-items: center;
+}
+
+.all-align {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.all-align .star-rating {
+	margin: 0 8px 0 0 !important;
+}
+
+.all-align .reviews {
+	margin-right: 5px;
+}
+
+.posts-wrapper {
+	margin: 10px 0;
+}
+
+.posts-wrapper h1 {
+	margin: 6px 0;
+	font-size: 22px;
+}
+
+/* Floor Plan */
+.container {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+.floor_plan_wrapper {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 30px;
+	row-gap: 30px;
+	
+}
+
+.home-card {
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	background: #f8f8f8;
+	padding: 15px;
+	text-align: center;
+}
+
+.home-card h3 {
+	font-size: 20px;
+	line-height: 32px;
+}
+
+body .floor_plan_wrapper .home-card img {
+        height: 100%;
+        max-height: 240px;
+        object-fit: cover;
+		margin: 0 auto 15px;
+		display: block;
+}
