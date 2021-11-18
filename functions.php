@@ -10,11 +10,13 @@
 
     require_once "includes/vehicle-post-type.php";
     require_once "includes/floor-plan-post-type.php";
-	
+
     require_once "includes/select-user-role-mb.php";
     require_once "includes/core/shortcodes.php";
     require_once "includes/tgmpa/class-tgm-plugin-activation.php";
     require_once "includes/tgmpa/tgmpa.php";
+	
+    require_once "includes/core/brewery.php";
 
     add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
     function my_theme_enqueue_styles() {
@@ -41,6 +43,7 @@
         wp_enqueue_style( 'owl-carousel', get_stylesheet_directory_uri() . '/assets/css/owl.carousel.min.css', '1.0' );
         wp_enqueue_script( 'owl-carousel', get_stylesheet_directory_uri() . '/assets/js/owl.carousel.min.js', array( 'jquery' ), '1.0', true );
         wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery' ), '1.0', true );
+        wp_enqueue_script( 'ajax-filter', get_stylesheet_directory_uri() . '/assets/js/ajax-filter.js', array( 'jquery' ), '1.0', true );
 
         /**
          * this is for sorting taxonomy in frontend
@@ -139,8 +142,8 @@
 
         add_filter( 'the_content', 'author_bio' );
 
-        $value = "Hello world";
-        apply_filters( 'hello_world', $value );
+        // $value = "Hello world";
+        // apply_filters( 'hello_world', $value );
 
         function modify_filter( $value ) {
             // $value = "Hello world updated!";
@@ -454,8 +457,8 @@
 			<td>
 				<select name="movie_type">
 					<option value="" disabled>Select One</option>
-					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
-					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
+					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
+					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
 					<option value="SD">SD</option>
 				</select>
 
@@ -589,13 +592,13 @@
                 if ( $myposts ) {
                     foreach ( $myposts as $myPost ):
                     setup_postdata( $myPost );?>
-							<li>
-								<a href="<?php the_permalink();?>"><?php the_title();?></a>
-								<p><?php the_excerpt();?></p>
-							</li>
-							<?php endforeach;
-                                        wp_reset_postdata();
-                                }?>
+											<li>
+												<a href="<?php the_permalink();?>"><?php the_title();?></a>
+												<p><?php the_excerpt();?></p>
+											</li>
+											<?php endforeach;
+                                                        wp_reset_postdata();
+                                                }?>
 	</ul>
 	<?php }
 
@@ -613,16 +616,23 @@
                 'before_title'  => '<h2 class="widgettitle">',
                 'after_title'   => '</h2>',
             ) );
-    }
-	
-	
-	// echo '<pre>';
-	// var_dump( wp_get_registered_image_subsizes(  ) );
-	// echo '</pre>';
-	
-	
-	
-	if( is_single() ) {
-		echo "Hello";
-		die();
-	}
+        }
+
+		$posts_to_exclude = array(1,2,3);
+        $foo_query = new WP_Query( array(
+            'post_type'      => 'post',
+            'posts_per_page' => 1 + count( $posts_to_exclude ),
+        ) );
+
+        if ( $foo_query->have_posts() ):
+            while ( $foo_query->have_posts() ):
+                $foo_query->the_post();
+
+                if ( in_array( get_the_ID(), $posts_to_exclude ) ) {
+                    continue;
+                }
+
+                // the_title();
+					
+        endwhile;
+    endif;

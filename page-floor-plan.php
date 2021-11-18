@@ -1,5 +1,8 @@
 <?php
 get_header();
 
-the_content();
+if(have_posts()):
+	the_post();
+	the_content();
+endif;
 get_footer();
