@@ -655,3 +655,28 @@
 	function ct_shop_loop_columns( $nc ) {
 		return 4; // number of columns - max 6 per columns
 	}
+	
+	// exclude product/s from shop page with id
+	add_filter( 'woocommerce_product_query', 'ct_exclude_product' );
+	function ct_exclude_product( $wq ) {
+		$wq->set( 'post__not_in', array( 4057, 4049));
+		return $wq;
+	}
+	
+	// exclude product/s from specific category from shop page with id
+	add_filter( 'woocommerce_product_query', 'ct_exclude_product_cat' );
+	function ct_exclude_product_cat( $wq ) {
+
+		$tax_query   = (array) $wq->get( 'tax_query' );
+		$tax_query[] = array(
+			'taxonomy' => 'product_cat',
+			'field'    => 'slug',
+			'terms'    => array( 'accessories' ),
+			'operator' => 'NOT IN',
+		);
+
+		$wq->set( 'tax_query', $tax_query );
+		return $wq;
+	}
+
+	
