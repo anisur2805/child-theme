@@ -8,14 +8,24 @@
      * @since 1.0.0
      */
 
-    if ( !defined( 'ABSPATH' ) ) {
-        exit; // Exit if accessed directly.
-}?>
+if( is_shop() && !is_active_sidebar('shop-sidebar')) {
+	return;
+} else if( !is_shop() && !is_active_sidebar('blog-sidebar')) {
+	return;
+}
 
-	<div class="sidebar-main"> 
+if ( !defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+?>
+
+	<div class="sidebar-main">
 		<?php
-			if ( is_active_sidebar( 'shop_sidebar' ) ):
-				dynamic_sidebar( 'shop_sidebar' );
-			endif; 
-		?>
-	</div><!-- .sidebar-main --> 
+          if( is_shop() ) {
+			  dynamic_sidebar('shop-sidebar');
+		  } else {
+			  dynamic_sidebar( 'blog-sidebar' );
+		  }
+        ?>
+	</div><!-- .sidebar-main -->

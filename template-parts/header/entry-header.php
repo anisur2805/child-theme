@@ -15,10 +15,10 @@ $args = array(
 
 global $product;
 
-$id = $loop->post->ID;
-$image = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'single-post-thumbnail' ); 
+// $id = $loop->post->ID;
+// $image = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'single-post-thumbnail' ); 
 ?> 
-<div class="woo-breadcrumb" style="background-image: url( <?php echo $image[0]; ?> ) ">
+<!-- <div class="woo-breadcrumb" style="background-image: url( <?php echo $image[0]; ?> ) "> -->
 <?php 
 woocommerce_breadcrumb( $args );
 echo '</div>';

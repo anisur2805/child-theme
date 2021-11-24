@@ -15,7 +15,7 @@
     require_once "includes/core/shortcodes.php";
     require_once "includes/tgmpa/class-tgm-plugin-activation.php";
     require_once "includes/tgmpa/tgmpa.php";
-	
+
     require_once "includes/core/brewery.php";
 
     add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
@@ -457,8 +457,8 @@
 			<td>
 				<select name="movie_type">
 					<option value="" disabled>Select One</option>
-					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
-					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
+					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
+					<option value="Dh"					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                  					                   <?php selected( 'HD', ct_save_movie_metabox_value( $movie_type ) );?>>HD</option>
 					<option value="SD">SD</option>
 				</select>
 
@@ -592,13 +592,13 @@
                 if ( $myposts ) {
                     foreach ( $myposts as $myPost ):
                     setup_postdata( $myPost );?>
-											<li>
-												<a href="<?php the_permalink();?>"><?php the_title();?></a>
-												<p><?php the_excerpt();?></p>
-											</li>
-											<?php endforeach;
-                                                        wp_reset_postdata();
-                                                }?>
+												<li>
+													<a href="<?php the_permalink();?>"><?php the_title();?></a>
+													<p><?php the_excerpt();?></p>
+												</li>
+												<?php endforeach;
+                                                            wp_reset_postdata();
+                                                    }?>
 	</ul>
 	<?php }
 
@@ -607,19 +607,31 @@
          */
         add_action( 'widgets_init', 'ct_slug_widgets_init' );
         function ct_slug_widgets_init() {
+
             register_sidebar( array(
-                'name'          => __( 'Main Sidebar', 'textdomain' ),
-                'id'            => 'shop_sidebar',
+                'name'          => __( 'Blog Sidebar', 'textdomain' ),
+                'id'            => 'blog-sidebar',
                 'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
                 'before_widget' => '<li id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</li>',
                 'before_title'  => '<h2 class="widgettitle">',
                 'after_title'   => '</h2>',
             ) );
+
+            register_sidebar( array(
+                'name'          => __( 'Shop Sidebar', 'textdomain' ),
+                'id'            => 'shop-sidebar',
+                'description'   => __( 'Widgets in this area will be shown on all shop pages.', 'textdomain' ),
+                'before_widget' => '<li id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</li>',
+                'before_title'  => '<h2 class="widgettitle">',
+                'after_title'   => '</h2>',
+            ) );
+
         }
 
-		$posts_to_exclude = array(1,2,3);
-        $foo_query = new WP_Query( array(
+        $posts_to_exclude = array( 1, 2, 3 );
+        $foo_query        = new WP_Query( array(
             'post_type'      => 'post',
             'posts_per_page' => 1 + count( $posts_to_exclude ),
         ) );
@@ -633,6 +645,13 @@
                 }
 
                 // the_title();
-					
+
         endwhile;
     endif;
+	
+	
+	// Change WooCommerce Shop page columns 
+	add_filter('loop_shop_columns', 'ct_shop_loop_columns');
+	function ct_shop_loop_columns( $nc ) {
+		return 4; // number of columns - max 6 per columns
+	}
