@@ -1,0 +1,16 @@
+Office PC - Brewery ACF - Key
+
+$fillable = array(
+	'field_618fe5c892adc' => 'name',
+	'field_618fe5d992add' => 'brewery_type',
+	'field_618fe5ed92ade' => 'street',
+	'field_618fe5f592adf' => 'city',
+	'field_618fe5fa92ae0' => 'state',
+	'field_618fe60092ae1' => 'postal_code',
+	'field_618fe60a92ae2' => 'country',
+	'field_618fe61092ae3' => 'longitude',
+	'field_618fe8d492ae4' => 'latitude',
+	'field_618fe8de92ae5' => 'phone',
+	'field_618fe8e692ae6' => 'website_url',
+	'field_618fe8ef92ae7' => 'updated_at',
+);
