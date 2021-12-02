@@ -91,18 +91,18 @@ function get_brewery_from_api() {
 
             if ( $brewery->updated_at >= $existing_brewery_timestamp ) {
                 $fillable = array(
-                    'field_618fe5c892adc' => 'name',
-                    'field_618fe5d992add' => 'brewery_type',
-                    'field_618fe5ed92ade' => 'street',
-                    'field_618fe5f592adf' => 'city',
-                    'field_618fe5fa92ae0' => 'state',
-                    'field_618fe60092ae1' => 'postal_code',
-                    'field_618fe60a92ae2' => 'country',
-                    'field_618fe61092ae3' => 'longitude',
-                    'field_618fe8d492ae4' => 'latitude',
-                    'field_618fe8de92ae5' => 'phone',
-                    'field_618fe8e692ae6' => 'website_url',
-                    'field_618fe8ef92ae7' => 'updated_at',
+                    'field_619daa2b76b8d' => 'name',
+                    'field_619daa4576b8e' => 'brewery_type',
+                    'field_619daa5176b8f' => 'street',
+                    'field_619daa5876b90' => 'city',
+                    'field_619daa6076b91' => 'state',
+                    'field_619daa6676b92' => 'postal_code',
+                    'field_619daa7076b93' => 'country',
+                    'field_619daa7776b94' => 'longitude',
+                    'field_619daa7f76b95' => 'latitude',
+                    'field_619daa8776b96' => 'phone',
+                    'field_619daa9076b97' => 'website_url',
+                    'field_619daa9a76b98' => 'updated_at',
                 );
 
                 foreach ( $fillable as $key => $name ) {
