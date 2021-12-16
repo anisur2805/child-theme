@@ -23,6 +23,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	<div class="sidebar-main">
 		<?php
           if( is_shop() ) {
+						echo '<div class="title-bg"><img src="https://www.radiustheme.com/demo/wordpress/themes/metro/wp-content/themes/metro/assets/img/menubar.png" /><h3 class="ml-10">Categories</h3></div>';
 			  dynamic_sidebar('shop-sidebar');
 		  } else {
 			  dynamic_sidebar( 'blog-sidebar' );
