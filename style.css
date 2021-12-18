@@ -120,3 +120,8 @@ body .floor_plan_wrapper .home-card img {
 .has-sidebar .woo-wrapper .col-md-4 {
 	flex: 0 2 20%;
 }
+
+/* WooCommerce Single Product */
+.text-uppercase {
+	text-transform: uppercase;
+}

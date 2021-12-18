@@ -19,7 +19,7 @@ function ct_woocommerce_loop_add_to_cart_link()
         // $button_text = add_to_cart_text();
         $button_text = __('Add to Cart', 'ct');
     }
-    return '<a class="view-product button" href="' . $product->get_permalink() . '">' . $button_text . '</a>';
+    return '<div class="test"><span class="shop_page_icon icon-heart">♡</span><a class="view-product button" href="' . $product->get_permalink() . '">' . $button_text . '</a><span class="shop_page_icon icon-eye">👁</span></div>';
 }
 
 /* Replace text of Sale! badge with percentage */
