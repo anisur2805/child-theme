@@ -5,9 +5,9 @@ get_header();
 // get_template_part( 'template-parts/header/entry-header' );
 
 echo '<div class="woo-wrapper">';
-echo '<div class="col-md-8">';
+// echo '<div class="col-md-8">';
 woocommerce_content();
-echo '</div>';
+// echo '</div>';
 
 if ( is_active_sidebar( 'shop-sidebar ' ) ) {
     echo '<div class="col-md-4">';

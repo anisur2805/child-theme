@@ -23,6 +23,9 @@
     require_once "includes/tgmpa/tgmpa.php";
 
     require_once "includes/core/brewery.php";
+    
+    require_once "lib/wc/metabox-and-options.php";
+    require_once "lib/wc/adv-wc-functions.php";
 
     add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
     function my_theme_enqueue_styles() {
@@ -666,4 +669,36 @@ function ct_get_posts() {?>
         return $wq;
     }
 
-// add_action('woocommerce_after_shop_loop_item', 'ct_woocommerce_template_loop_add_to_cart');
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+// add_action('woocommerce_after_shop_loop_item', 'ct_woocommerce_after_shop_loop_item');
+// function ct_woocommerce_after_shop_loop_item() {
+//     // echo '<div class="show_on_hover">';
+//     // Image.
+//     // add_action( 'yith_wcqv_product_image', 'woocommerce_show_product_sale_flash', 10 );
+//     do_action( 'child_theme_wcqv_product_image', 'woocommerce_show_product_images', 30 );
+
+//     // Summary.
+//     // add_action( 'yith_wcqv_product_summary', 'woocommerce_template_single_title', 5 );
+//     // add_action( 'yith_wcqv_product_summary', 'woocommerce_template_single_rating', 10 );
+//     // add_action( 'yith_wcqv_product_summary', 'woocommerce_template_single_price', 15 );
+//     // add_action( 'yith_wcqv_product_summary', 'woocommerce_template_single_excerpt', 20 );
+//     // add_action( 'yith_wcqv_product_summary', 'woocommerce_template_single_add_to_cart', 25 );
+//     // add_action( 'yith_wcqv_product_summary', 'woocommerce_template_single_meta', 30 );
+//     // echo '</div>';
+// }
+
+
+// add_action('yith_wcqv_product_image', 'ct_yith_wcqv_product_image');
+// // add_action('yith_wcqv_product_summary', 'ct_yith_wcqv_product_summary', 26);
+// function ct_yith_wcqv_product_image() {
+//     echo "<h3>child_theme_wcqv_product_image</h3>";
+// }
+
+// // function ct_yith_wcqv_product_summary() {
+// //     echo "<h2>Hello</h2>";
+// // }
+
+// // add_action('child_theme_wcqv_product_image', 'hello');
+// // function hello() {
+// //     echo "<h2>Hello</h2>";
+// // }

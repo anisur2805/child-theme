@@ -133,3 +133,11 @@ ul, li {
 .product-categories li a:hover {
     background: #e5e5e5;
 }
+
+
+
+/* Shop Single Page */
+.single_product_page .summary.entry-summary{
+        float: none !important;
+    width: auto !important;
+}

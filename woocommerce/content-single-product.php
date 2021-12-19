@@ -33,33 +33,106 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-	<?php
-	/**
-	 * Hook: woocommerce_before_single_product_summary.
-	 *
-	 * @hooked woocommerce_show_product_sale_flash - 10
-	 * @hooked woocommerce_show_product_images - 20
-	 */
-	do_action( 'woocommerce_before_single_product_summary' );
-	?>
-
-	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		do_action( 'woocommerce_single_product_summary' );
-		?>
+	<div class="container single_product_page">
+		<div class="row">
+			<div class="col-md-6">
+					<?php
+					
+						$attachment_ids = $product->get_gallery_image_ids(); 
+					
+						if( !empty($attachment_ids)) {  ?>
+						
+						<script>
+							jQuery(document).ready(function($){
+								 $('.product-large-image').slick({
+									slidesToShow: 1,
+									slidesToScroll: 1,
+									arrows: false,
+									fade: true,
+									asNavFor: '.product-gallery-image'
+								});
+								$('.product-gallery-image').slick({
+									slidesToShow: 3,
+									slidesToScroll: 1,
+									asNavFor: '.product-large-image',
+									dots: true,
+									centerMode: true,
+									focusOnSelect: true
+								});
+							});
+						</script>
+						
+								<div class="product-large-image">
+									<?php 
+										foreach ($attachment_ids as $large_img) {
+											?>
+												
+											<div class="product-large-single-image">
+												<img src="<?php echo wp_get_attachment_image_url( $large_img, 'large' ) ?>" />
+											
+											</div>
+											<?php 
+										}
+									
+									?>
+								</div>
+								
+								
+								<div class="product-gallery-image">
+									<?php 
+										foreach ($attachment_ids as $small_img) {
+											?>
+												
+											<div class="product-gallery-single-image">
+												<img src="<?php echo wp_get_attachment_url( $small_img, 'large' ) ?>" />
+											
+											</div>
+											<?php 
+										}
+									
+									?>
+								</div>
+								
+								
+							
+							<?php 
+						}
+					
+					
+						/**
+						* Hook: woocommerce_before_single_product_summary.
+						*
+						* @hooked woocommerce_show_product_sale_flash - 10
+						* @hooked woocommerce_show_product_images - 20
+						*/
+						// do_action( 'woocommerce_before_single_product_summary' );
+					?>
+			</div>
+			<div class="col-md-6">
+					<div class="summary entry-summary">
+						<?php
+						/**
+						* Hook: woocommerce_single_product_summary.
+						*
+						* @hooked woocommerce_template_single_title - 5
+						* @hooked woocommerce_template_single_rating - 10
+						* @hooked woocommerce_template_single_price - 10
+						* @hooked woocommerce_template_single_excerpt - 20
+						* @hooked woocommerce_template_single_add_to_cart - 30
+						* @hooked woocommerce_template_single_meta - 40
+						* @hooked woocommerce_template_single_sharing - 50
+						* @hooked WC_Structured_Data::generate_product_data() - 60
+						*/
+						do_action( 'woocommerce_single_product_summary' );
+						?>
+					</div>
+			</div>
+		</div>
 	</div>
+
+
+
+
 
 	<?php
 	/**
