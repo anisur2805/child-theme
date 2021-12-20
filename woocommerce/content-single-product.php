@@ -55,7 +55,7 @@
 									slidesToShow: 3,
 									slidesToScroll: 1,
 									asNavFor: '.product-large-image',
-									dots: true,
+									dots: false,
 									centerMode: true,
 									focusOnSelect: true
 								});

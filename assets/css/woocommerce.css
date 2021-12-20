@@ -141,3 +141,23 @@ ul, li {
         float: none !important;
     width: auto !important;
 }
+.product-gallery-single-image.slick-slide {
+    margin: 0 8px;
+}
+.product-gallery-image {
+    margin-top: 15px;
+}
+.product-gallery-image button.slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+.product-gallery-image button.slick-next.slick-arrow {
+    right: 0;
+}
+
+.product-gallery-image button.slick-arrow:hover {
+    background: #000;
+    color: #fff;
+}
