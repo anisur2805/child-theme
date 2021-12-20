@@ -32,16 +32,34 @@
 
  ?><h2><?php echo wp_kses_post( $tab['title'] ); ?></h2>
     <p>Tab Content</p><?php
-}
+                       }
 
     add_filter( 'woocommerce_before_add_to_cart_form', 'wpct_woocommerce_get_price_html' );
     function wpct_woocommerce_get_price_html() {
     $product = wc_get_product( get_the_ID() );
 
     if ( $product->is_on_sale() ) {
-        $save_amount = $product->get_price('regular');
-        echo '<div class="price_html">' . $product->get_price_html() . ' You save - '. $save_amount .'</div>';
-    } else {
-        echo '<div class="price_html">test' . $product->get_price_html() . '</div>';
+        $sale_price    = $product->get_sale_price();
+        $regular_price = $product->get_regular_price();
+
+        if ( $product->is_type( 'simple' ) ) {
+        $save_amount = absint( 100 - (  ( $sale_price / $regular_price ) * 100 ) );
+        echo '<div class="price_html">' . $product->get_price_html() . ' You save - ' . $save_amount . '% </div>';
+
+        }
+
+    } 
     }
-    }
+
+
+// Wishlist after button
+function wpct_browse_wishlist_label(){
+    return "<i class='fa fa-heart'></i>";
+}
+add_filter('yith-wcwl-browse-wishlist-label', 'wpct_browse_wishlist_label');
+
+// Compare after button
+function wpct_compare_label() {
+    return "";
+}
+add_filter('yith_woocompare_compare_added_label', 'wpct_compare_label');

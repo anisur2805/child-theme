@@ -5,7 +5,7 @@
  * This function will override woocommerce default
  * category page button text base on product type
  */
-add_filter('woocommerce_loop_add_to_cart_link', 'ct_woocommerce_loop_add_to_cart_link');
+// add_filter('woocommerce_loop_add_to_cart_link', 'ct_woocommerce_loop_add_to_cart_link');
 function ct_woocommerce_loop_add_to_cart_link()
 {
     global $product;
