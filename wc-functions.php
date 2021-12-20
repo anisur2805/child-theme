@@ -304,8 +304,3 @@ function my_theme_wrapper_end() {
     echo '</section>';
 }
 
-function  wpct_woocommerce_before_cart_button() {
-    $product = wc_get_product( get_the_ID());
-    echo '<div class="price_html">'. $product->get_price_html() .'</div>';
-}
-add_filter('woocommerce_before_add_to_cart_button', 'wpct_woocommerce_before_cart_button');
