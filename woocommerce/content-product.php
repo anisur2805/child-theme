@@ -82,7 +82,7 @@
 
 								<?php 
 								
-								woocommerce_template_loop_add_to_cart();
+								// woocommerce_template_loop_add_to_cart();
 									woocommerce_template_loop_rating();
 								
 								?>
