@@ -304,3 +304,14 @@ function my_theme_wrapper_end() {
     echo '</section>';
 }
 
+// Wishlist after button
+function wpct_browse_wishlist_label( $browse_wishlist_text ){
+    return "<i class='fa fa-heart tet'></i>";
+}
+add_filter('yith_wcwl_browse_wishlist_label', 'wpct_browse_wishlist_label', 10, 1);
+
+// Compare after button
+function wpct_compare_label() {
+    return "";
+}
+add_filter('yith_woocompare_compare_added_label', 'wpct_compare_label');

@@ -52,14 +52,3 @@
     }
 
 
-// Wishlist after button
-function wpct_browse_wishlist_label(){
-    return "<i class='fa fa-heart'></i>";
-}
-add_filter('yith-wcwl-browse-wishlist-label', 'wpct_browse_wishlist_label');
-
-// Compare after button
-function wpct_compare_label() {
-    return "";
-}
-add_filter('yith_woocompare_compare_added_label', 'wpct_compare_label');
