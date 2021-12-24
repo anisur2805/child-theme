@@ -174,8 +174,12 @@ ul, li {
     justify-content: center;
     flex-direction: column;
     position: relative;
+<<<<<<< HEAD
     background-position: center center;
     background-size: cover;
+=======
+    background-repeat: no-repeat;
+>>>>>>> de8ca34967229b1c3b857847807f21fe656a246d
 }
 .product_bg .products-button {
     display: flex;
