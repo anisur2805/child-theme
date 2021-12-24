@@ -23,9 +23,8 @@
  if ( empty( $product ) || !$product->is_visible() ) {
   return;
  }
-?>
+?> 
     <li <?php wc_product_class( '', $product );?>>
-
         <div class="product_bg" style="background-image: url(<?php echo get_the_post_thumbnail_url( get_the_ID(), 'medium' ); ?>); ">
             <div class="products-button">
                 <a href="<?php echo site_url() ?>/shop/?add-to-cart=<?php echo get_the_ID(); ?>" data-quantity="1" class="overlay_btn button add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo get_the_ID(); ?>" rel="nofollow">
@@ -40,8 +39,10 @@
         </div>
         
         <?php 
-            do_action( 'woocommerce_shop_loop_item_title' );
-            woocommerce_template_loop_price();
+        woocommerce_template_loop_product_link_open();
+            do_action( 'woocommerce_shop_loop_item_title' ); 
+            woocommerce_template_loop_product_link_close();
+            woocommerce_template_loop_price(); 
         ?>
         
     </li>
