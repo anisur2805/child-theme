@@ -4,10 +4,10 @@
  function wpct_enqueue_styles() {
 
   wp_enqueue_style( 'bs-style', '//cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' );
-  wp_enqueue_style( 'slick-style', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
+  wp_enqueue_style( 'slick-style', '//github.com/kenwheeler/slick/blob/master/slick/slick.css' );
 
   wp_enqueue_script( 'bs-script', '//cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js' );
-  wp_enqueue_script( 'slick-script', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js' );
+  wp_enqueue_script( 'slick-script', '//github.com/kenwheeler/slick/blob/master/slick/slick.min.js' );
 
  }
 
